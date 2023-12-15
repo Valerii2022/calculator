@@ -9,27 +9,37 @@
   <body>
     <div class="container">
       <div class="calculator">
-        <input type="text" class="display" />
+        <label><input type="text" class="display" /></label>
         <div class="btn-wrapper">
-          <button id="С">C</button>
-          <button id="positive or negative">+/-</button>
-          <button id="percent">%</button>
-          <button id="/" class="addition">&#247;</button>
-          <button id="7" class="digits">7</button>
-          <button id="8" class="digits">8</button>
-          <button id="9" class="digits">9</button>
-          <button id="*" class="addition">x</button>
-          <button id="4" class="digits">4</button>
-          <button id="5" class="digits">5</button>
-          <button id="6" class="digits">6</button>
-          <button id="-" class="addition">-</button>
-          <button id="2" class="digits">1</button>
-          <button id="2" class="digits">2</button>
-          <button id="3" class="digits">3</button>
-          <button id="+" class="addition">+</button>
-          <button id="0" class="digits double">0</button>
-          <button id="." class="digits">.</button>
-          <button id="=" class="addition">=</button>
+          <button id="С" aria-label="Clear">C</button>
+          <button id="toggle" aria-label="Toggle sign">+/-</button>
+          <button id="percent" aria-label="">%</button>
+          <button id="division" class="addition" aria-label="Division sign">
+            &#247;
+          </button>
+          <button id="7" class="digits" aria-label="Number seven">7</button>
+          <button id="8" class="digits" aria-label="Number eight">8</button>
+          <button id="9" class="digits" aria-label="Number nine">9</button>
+          <button
+            id="Multiplication"
+            class="addition"
+            aria-label="Multiplication sign"
+          >
+            x
+          </button>
+          <button id="4" class="digits" aria-label="Number four">4</button>
+          <button id="5" class="digits" aria-label="Number five">5</button>
+          <button id="6" class="digits" aria-label="Number six">6</button>
+          <button id="minus" class="addition" aria-label="Minus sign">-</button>
+          <button id="2" class="digits" aria-label="Number one">1</button>
+          <button id="2" class="digits" aria-label="Number two">2</button>
+          <button id="3" class="digits" aria-label="Number three">3</button>
+          <button id="plus" class="addition" aria-label="Plus sign">+</button>
+          <button id="0" class="digits double" aria-label="Number zero">
+            0
+          </button>
+          <button id="dot" class="digits" aria-label="Dot sign">.</button>
+          <button id="equal" class="addition" aria-label="Equal sign">=</button>
         </div>
       </div>
     </div>
@@ -37,3 +47,63 @@
     <script src="./dist/index.js" type="module"></script>
   </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h2>Калькулятор</h2>
+
+    <input type="text" id="result" disabled />
+    <br />
+
+    <button onclick="appendToResult('1')">1</button>
+    <button onclick="appendToResult('2')">2</button>
+    <button onclick="appendToResult('3')">3</button>
+    <button onclick="appendToResult('+')">+</button>
+    <br />
+
+    <button onclick="appendToResult('4')">4</button>
+    <button onclick="appendToResult('5')">5</button>
+    <button onclick="appendToResult('6')">6</button>
+    <button onclick="appendToResult('-')">-</button>
+    <br />
+
+    <button onclick="appendToResult('7')">7</button>
+    <button onclick="appendToResult('8')">8</button>
+    <button onclick="appendToResult('9')">9</button>
+    <button onclick="appendToResult('*')">*</button>
+    <br />
+
+    <button onclick="appendToResult('0')">0</button>
+    <button onclick="clearResult()">C</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="appendToResult('/')">/</button>
+
+    <script>
+      function appendToResult(value) {
+        document.getElementById("result").value += value;
+      }
+
+      function clearResult() {
+        document.getElementById("result").value = "";
+      }
+
+      function calculateResult() {
+        var result = document.getElementById("result").value;
+        try {
+          var sanitizedResult = result.replace(/[^-()\d/*+.]/g, ""); // Очистка от небезопасных символов
+          document.getElementById("result").value = Function(
+            '"use strict";return (' + sanitizedResult + ")"
+          )();
+        } catch (error) {
+          document.getElementById("result").value = "Ошибка";
+        }
+      }
+    </script>
+  </body>
+</html> -->

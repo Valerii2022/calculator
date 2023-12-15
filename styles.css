@@ -81,7 +81,10 @@ button {
   background-color: #bebec0;
 }
 
-button:not(:disabled):hover {
+.display:hover,
+.display:focus,
+button:not(:disabled):hover,
+button:not(:disabled):focus {
   border: 1px solid red;
 }
 
