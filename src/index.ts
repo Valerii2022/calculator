@@ -1,6 +1,6 @@
-let expression = "";
-let result = 0;
-let operator;
+let expression: string = "";
+let result: number = 0;
+let operator: string = "";
 
 const refs: any = {
   wrapper: document.querySelector(".btn-wrapper"),
@@ -19,8 +19,25 @@ function calculate(e) {
     result = Number(expression);
     expression = "";
   }
+  if (e.target.textContent === "-") {
+    operator === "-";
+    result = Number(expression);
+    expression = "";
+  }
   if (e.target.textContent === "=") {
-    result += Number(expression);
+    if (operator === "+") {
+      result += Number(expression);
+    }
+    if (operator === "-") {
+      result -= Number(expression);
+    }
     refs.display.value = result;
+    expression = "";
+  }
+  if (e.target.textContent === "C") {
+    expression = "";
+    result = 0;
+    operator = "";
+    refs.display.value = "";
   }
 }
