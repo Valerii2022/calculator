@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Montserrat:wght@600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: beige;
+  color: teal;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+
+.calculator {
+  width: 270px;
+  background-color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(28, 28, 28, 0.1);
+}
+
+.display {
+  background-color: #322f32;
+  color: #fa9828;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: right;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: #bebec0;
+}
+
+button:not(:disabled):hover {
+  border: 1px solid red;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.digits {
+  background-color: #322f32;
+  color: #ffffff;
+}
+
+.addition {
+  background-color: #ffac4a;
+  color: #ffffff;
+}
+
+.double {
+  width: 110px;
+  border-radius: 50px;
+}

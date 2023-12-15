@@ -1,0 +1,22 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valerii2022/calculator.git"
+  },
+  "author": "Valerii <vmpometun@gmail.comL>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Valerii2022/calculator/issues"
+  },
+  "homepage": "https://github.com/Valerii2022/calculator#readme",
+  "devDependencies": {
+    "@web/dev-server": "^0.4.1"
+  }
+}
