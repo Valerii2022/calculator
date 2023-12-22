@@ -1,8 +1,13 @@
-const buttonsRef = document.querySelector(".btn-wrapper");
+const buttonsRef: HTMLElement | null = document.querySelector(".btn-wrapper");
+let equalResult: string = "";
 
 buttonsRef?.addEventListener("click", appendToResult);
 
-function appendToResult(e) {
+function appendToResult(e: Event) {
+  if (!(e.target instanceof HTMLElement)) {
+    return;
+  }
+
   if (e.target.id === "clear") {
     clearResult();
     return;
@@ -11,21 +16,25 @@ function appendToResult(e) {
     calculateResult();
     return;
   }
-  document.getElementById("result").value += e.target.id;
+  equalResult += e.target.id;
+  const resultElement = document.getElementById("result") as HTMLInputElement;
+  resultElement.value = e.target.id;
 }
 
 function clearResult() {
-  document.getElementById("result").value = "";
+  const resultElement = document.getElementById("result") as HTMLInputElement;
+  resultElement.value = "";
 }
 
 function calculateResult() {
-  const result = document.getElementById("result").value;
   try {
-    const sanitizedResult = result.replace(/[^-()\d/*+.]/g, "");
-    document.getElementById("result").value = Function(
+    const sanitizedResult = equalResult.replace(/[^-()\d/*+.]/g, "");
+    const resultElement = document.getElementById("result") as HTMLInputElement;
+    resultElement.value = Function(
       '"use strict";return (' + sanitizedResult + ")"
     )();
   } catch (error) {
-    document.getElementById("result").value = "Error";
+    const resultElement = document.getElementById("result") as HTMLInputElement;
+    resultElement.value = "Error";
   }
 }
