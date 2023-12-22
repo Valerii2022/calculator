@@ -66,8 +66,23 @@ a {
 .btn-wrapper {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
   color: #000000;
+}
+
+.top-panel {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.digits-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.addition-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 button {
@@ -85,7 +100,7 @@ button {
 .display:focus,
 button:not(:disabled):hover,
 button:not(:disabled):focus {
-  border: 1px solid red;
+  border: 2px solid #ffffff;
 }
 
 button:disabled {
