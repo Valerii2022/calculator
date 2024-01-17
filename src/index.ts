@@ -1,44 +1,3 @@
-// const buttonsRef: HTMLElement | null = document.querySelector(".btn-wrapper");
-// let equalResult: string = "";
-
-// buttonsRef?.addEventListener("click", appendToResult);
-
-// function appendToResult(e: Event) {
-//   if (!(e.target instanceof HTMLElement)) {
-//     return;
-//   }
-
-//   if (e.target.id === "clear") {
-//     clearResult();
-//     return;
-//   }
-//   if (e.target.id === "equal") {
-//     calculateResult();
-//     return;
-//   }
-//   equalResult += e.target.id;
-//   const resultElement = document.getElementById("result") as HTMLInputElement;
-//   resultElement.value = e.target.id;
-// }
-
-// function clearResult() {
-//   const resultElement = document.getElementById("result") as HTMLInputElement;
-//   resultElement.value = "";
-// }
-
-// function calculateResult() {
-//   try {
-//     const sanitizedResult = equalResult.replace(/[^-()\d/*+.]/g, "");
-//     const resultElement = document.getElementById("result") as HTMLInputElement;
-//     resultElement.value = Function(
-//       '"use strict";return (' + sanitizedResult + ")"
-//     )();
-//   } catch (error) {
-//     const resultElement = document.getElementById("result") as HTMLInputElement;
-//     resultElement.value = "Error";
-//   }
-// }
-
 class Calculator {
   private currentResult: number = 0;
   private isNegative: boolean = false;
@@ -102,7 +61,9 @@ class Calculator {
   }
 
   calculatePercentage(percentage: number): void {
-    this.currentResult *= percentage / 100;
+    console.log(percentage, this.currentResult);
+    this.currentResult =
+      this.currentResult + this.currentResult * (percentage / 100);
   }
 
   getResult(): number {
@@ -131,36 +92,22 @@ function appendToResult(e: Event) {
     calculator.clearDisplay();
     calculator.clearResult();
     displayRef.value = "0";
-    console.log(calculator.getResult(), calculator.getDisplay());
     return;
   }
   if (e.target.id === "equal") {
-    const sign = calculator.getSign();
-    if (sign === "add") {
-      calculator.add(Number(calculator.getDisplay()));
-    }
-    if (sign === "subtract") {
-      calculator.subtract(Number(calculator.getDisplay()));
-    }
-    if (sign === "multiply") {
-      calculator.multiply(Number(calculator.getDisplay()));
-    }
-    if (sign === "divide") {
-      calculator.divide(Number(calculator.getDisplay()));
-    }
-    displayRef.value = calculator.getResult().toString();
-    calculator.clearDisplay();
-    console.log(calculator.getResult(), calculator.getDisplay());
+    calculateResult();
     return;
   }
-
+  if (e.target.id === "percent") {
+    calculator.calculatePercentage(Number(calculator.getDisplay()));
+    return;
+  }
   if (e.target.id === "toggle") {
     calculator.addSign("");
     calculator.toggleSign();
     displayRef.value = `-${calculator.getDisplay()}`;
     calculator.clearDisplay();
     calculator.addToDisplay(displayRef.value);
-    console.log(calculator.getResult(), calculator.getDisplay());
     return;
   }
   if (e.target.id === "add") {
@@ -168,7 +115,6 @@ function appendToResult(e: Event) {
     calculator.add(Number(calculator.getDisplay()));
     calculator.clearDisplay();
     displayRef.value = "+";
-    console.log(calculator.getResult(), calculator.getDisplay());
     return;
   }
   if (e.target.id === "subtract") {
@@ -176,7 +122,6 @@ function appendToResult(e: Event) {
     calculator.subtract(Number(calculator.getDisplay()));
     calculator.clearDisplay();
     displayRef.value = "-";
-    console.log(calculator.getResult(), calculator.getDisplay());
     return;
   }
   if (e.target.id === "multiply") {
@@ -184,7 +129,6 @@ function appendToResult(e: Event) {
     calculator.multiply(Number(calculator.getDisplay()));
     calculator.clearDisplay();
     displayRef.value = "x";
-    console.log(calculator.getResult(), calculator.getDisplay());
     return;
   }
   if (e.target.id === "divide") {
@@ -192,13 +136,27 @@ function appendToResult(e: Event) {
     calculator.divide(Number(calculator.getDisplay()));
     calculator.clearDisplay();
     displayRef.value = "/";
-    console.log(calculator.getResult(), calculator.getDisplay());
     return;
   }
 
   calculator.addToDisplay(e.target.id as string);
   displayRef.value = calculator.getDisplay();
-  console.log(calculator.getResult(), calculator.getDisplay());
 }
 
-function calculateResult() {}
+function calculateResult() {
+  const sign = calculator.getSign();
+  if (sign === "add") {
+    calculator.add(Number(calculator.getDisplay()));
+  }
+  if (sign === "subtract") {
+    calculator.subtract(Number(calculator.getDisplay()));
+  }
+  if (sign === "multiply") {
+    calculator.multiply(Number(calculator.getDisplay()));
+  }
+  if (sign === "divide") {
+    calculator.divide(Number(calculator.getDisplay()));
+  }
+  displayRef.value = calculator.getResult().toString();
+  calculator.clearDisplay();
+}
