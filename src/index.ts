@@ -61,7 +61,6 @@ class Calculator {
   }
 
   calculatePercentage(percentage: number): void {
-    console.log(this.sign);
     if (this.sign === "add") {
       this.currentResult =
         this.currentResult + this.currentResult * (percentage / 100);

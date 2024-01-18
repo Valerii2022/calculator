@@ -55,7 +55,6 @@ class Calculator {
         this.isNegative = !this.isNegative;
     }
     calculatePercentage(percentage) {
-        console.log(this.sign);
         if (this.sign === "add") {
             this.currentResult =
                 this.currentResult + this.currentResult * (percentage / 100);
