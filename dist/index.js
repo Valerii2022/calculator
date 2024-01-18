@@ -83,9 +83,12 @@ const displayRef = document.getElementById("result");
 buttonsRef.addEventListener("click", appendToResult);
 displayRef.value = "0";
 function appendToResult(e) {
-    if (!(e.target instanceof HTMLElement)) {
+    console.log(displayRef.value);
+    if (e.target === e.currentTarget || !(e.target instanceof HTMLElement)) {
+        console.log(displayRef.value);
         return;
     }
+    console.log(displayRef.value);
     if (e.target.id === "clear") {
         calculator.clearDisplay();
         calculator.clearResult();
