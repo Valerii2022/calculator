@@ -61,9 +61,21 @@ class Calculator {
   }
 
   calculatePercentage(percentage: number): void {
-    console.log(percentage, this.currentResult);
-    this.currentResult =
-      this.currentResult + this.currentResult * (percentage / 100);
+    console.log(this.sign);
+    if (this.sign === "add") {
+      this.currentResult =
+        this.currentResult + this.currentResult * (percentage / 100);
+    }
+    if (this.sign === "subtract") {
+      this.currentResult =
+        this.currentResult - this.currentResult * (percentage / 100);
+    }
+    if (this.sign === "multiply") {
+      this.currentResult = this.currentResult * (percentage / 100);
+    }
+    if (this.sign === "divide") {
+      this.currentResult = this.currentResult / (percentage / 100);
+    }
   }
 
   getResult(): number {
@@ -100,6 +112,7 @@ function appendToResult(e: Event) {
   }
   if (e.target.id === "percent") {
     calculator.calculatePercentage(Number(calculator.getDisplay()));
+    calculator.addSign("percent");
     return;
   }
   if (e.target.id === "toggle") {
